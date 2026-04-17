@@ -51,7 +51,6 @@ def generate_data():
     
     return df
 
-
 def load_data():
     df = generate_data()
     return df
