@@ -17,9 +17,6 @@ def save_and_show(plot_name):
 
 def plot_results(df):
 
-    # -----------------------------
-    # 1. Actual vs Forecast
-    # -----------------------------
     plt.figure()
     plt.plot(df['date'], df['sales'], label='Actual Sales')
     plt.plot(df['date'], df['forecast'], label='Forecast Sales')
@@ -32,9 +29,6 @@ def plot_results(df):
 
     save_and_show("actual_vs_forecast")
 
-    # -----------------------------
-    # 2. Inventory vs Reorder Point
-    # -----------------------------
     plt.figure()
     plt.plot(df['date'], df['current_stock'], label='Current Stock')
     plt.plot(df['date'], df['reorder_point'], label='Reorder Point')
@@ -47,9 +41,6 @@ def plot_results(df):
 
     save_and_show("inventory_vs_reorder")
 
-    # -----------------------------
-    # 3. Reorder Alerts
-    # -----------------------------
     reorder_counts = df['reorder_flag'].value_counts()
 
     plt.figure()
