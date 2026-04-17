@@ -8,22 +8,13 @@ def calculate_inventory(df):
     # Use forecast as demand
     demand = df['forecast']
     
-    # -------------------------
-    # SAFETY STOCK
-    # -------------------------
     demand_std = np.std(demand)
     safety_stock = 1.65 * demand_std
     
-    # -------------------------
-    # REORDER POINT
-    # -------------------------
     avg_demand = np.mean(demand)
     
     reorder_point = (avg_demand * lead_time) + safety_stock
     
-    # -------------------------
-    # INVENTORY DECISION LOGIC
-    # -------------------------
     df['safety_stock'] = safety_stock
     df['reorder_point'] = reorder_point
     
