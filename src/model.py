@@ -36,7 +36,6 @@ def train_model(df):
     
     return model
 
-
 def forecast(model, df):
     
     features = [
