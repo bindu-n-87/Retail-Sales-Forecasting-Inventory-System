@@ -5,15 +5,9 @@ os.makedirs("outputs", exist_ok=True)
 
 def generate_report(df):
 
-    # -----------------------------
-    # 1. Forecast Summary
-    # -----------------------------
     forecast_summary = df.groupby("date")[["sales", "forecast"]].sum().reset_index()
     forecast_summary.to_csv("outputs/forecast_summary.csv", index=False)
 
-    # -----------------------------
-    # 2. Inventory Report
-    # -----------------------------
     inventory_report = df[[
         "date",
         "product_id",
@@ -25,9 +19,6 @@ def generate_report(df):
 
     inventory_report.to_csv("outputs/inventory_report.csv", index=False)
 
-    # -----------------------------
-    # 3. Business Insights Summary
-    # -----------------------------
     total_sales = df["sales"].sum()
     total_forecast = df["forecast"].sum()
     reorder_days = df["reorder_flag"].sum()
